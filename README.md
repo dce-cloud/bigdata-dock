@@ -9,11 +9,11 @@
 
 | status | service | backend ip | version | 备注 |
 |---|---|---|---|---|
-| doris-fe | 172.25.27.80 | 3.1.0 | |
-| doris-be | 172.25.27.81 | 3.1.0 | |
-| mysql | 172.25.27.87 | 8.3 | |
-| flink-jobmanager | 172.25.27.89 | 2.1.0-java17 | |
-| flink-taskmanager | 172.25.27.90 | 2.1.0-java17 | |
+| &check; | doris-fe | 172.25.27.80 | 3.1.0 | |
+| &check; | doris-be | 172.25.27.81 | 3.1.0 | |
+| &check; | mysql | 172.25.27.87 | 8.3 | |
+| &check; | flink-jobmanager | 172.25.27.89 | 2.1.0-java17 | |
+| &check; | flink-taskmanager | 172.25.27.90 | 2.1.0-java17 | |
 
 
 # 使用到的镜像
