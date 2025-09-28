@@ -1,0 +1,7 @@
+ARG DOCKER_REGISTRY_URL
+ARG FLINK_VERSION=latest
+FROM ${DOCKER_REGISTRY_URL}flink:scala_${FLINK_VERSION}
+
+LABEL maintainer="zaizai <373045134@qq.com>"
+
+ENV TZ=Asia/Shanghai
