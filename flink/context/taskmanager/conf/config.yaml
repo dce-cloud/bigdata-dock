@@ -11,7 +11,7 @@ jobmanager:
   execution:
     failover-strategy: region
   rpc:
-    address: jobmanager
+    address: flink-jobmanager
     port: 6123
   memory:
     process:
