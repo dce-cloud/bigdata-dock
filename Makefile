@@ -29,3 +29,10 @@ enter_apache_doris_fe:
 .PHONY: enter_apache_doris_be
 enter_apache_doris_be:
 	@${DC_ENTER} ${APACHE_DORIS_BE_CONTAINER_NAME} bash
+
+
+build_flink:
+	@${DC_BUILD} ${FLINK_JOBMANAGER_CONTAINER_NAME} ${FLINK_TASKMANAGER_CONTAINER_NAME}
+
+up_flink:
+	@${DC_UP} ${FLINK_JOBMANAGER_CONTAINER_NAME} ${FLINK_TASKMANAGER_CONTAINER_NAME}
