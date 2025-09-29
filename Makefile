@@ -14,7 +14,7 @@ test:
 .PHONY: echo_init_network
 echo_init_network:
 	@echo ${DOCKER} network ls
-	@echo ${DOCKER} network create --driver ${NETWORKS_DRIVER} --subnet=${BACKEND_SUBNET} --gateway=${BACKEND_SUBNET_GATEWAY} ${BACKEND_NETWORK_NAME}
+	@echo ${DOCKER} network create --driver ${DOCKER_NETWORK_DRIVER} --subnet=${DOCKER_BACKEND_SUBNET} --gateway=${DOCKER_BACKEND_SUBNET_GATEWAY} ${DOCKER_BACKEND_NETWORK_NAME}
 	@echo ${DOCKER} network ls
 
 echo_init_volume:
@@ -22,16 +22,10 @@ echo_init_volume:
 	@echo ${DOCKER} volume create --name xx
 	@echo ${DOCKER} volume ls
 
-.PHONY: rm_all_containers prune_docker
-rm_all_containers:
-	@${DOCKER} ps -a -q | xargs ${DOCKER} rm -f
-
-.PHONY: rm_single
-rm_single:
-	@rm -rf ${DATA_HOST_PATH}/single
-
-.PHONY: enter_apache_doris_fe enter_apache_doris_be
+.PHONY: enter_apache_doris_fe
 enter_apache_doris_fe:
 	@${DC_ENTER} ${APACHE_DORIS_FE_CONTAINER_NAME} bash
+
+.PHONY: enter_apache_doris_be
 enter_apache_doris_be:
 	@${DC_ENTER} ${APACHE_DORIS_BE_CONTAINER_NAME} bash
