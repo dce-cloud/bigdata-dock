@@ -1,0 +1,19 @@
+services:
+
+### Dinky ################################################
+  dinky:
+    build:
+      context: ${DINKY_HOST_PATH}
+      args:
+        DOCKER_REGISTRY_URL: ${DOCKER_REGISTRY_URL}
+        DINKY_VERSION: ${DINKY_VERSION}
+    container_name: ${DINKY_CONTAINER_NAME}
+    hostname: ${DINKY_HOSTNAME}
+    restart: ${DOCKER_RESTART_POLICY}
+    environment:
+      TZ: ${TZ}
+    ports:
+      - 8888:8888
+    networks:
+      backend:
+        ipv4_address: ${DINKY_BACKEND_IP}
