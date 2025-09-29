@@ -9,11 +9,11 @@
 
 | status | service | backend ip | version | 备注 |
 |---|---|---|---|---|
-| &check; | doris-fe | 172.25.27.80 | 3.1.0 | |
-| &check; | doris-be | 172.25.27.81 | 3.1.0 | |
-| &check; | mysql | 172.25.27.87 | 8.3 | |
-| &check; | flink-jobmanager | 172.25.27.89 | 2.1.0-java17 | |
-| &check; | flink-taskmanager | 172.25.27.90 | 2.1.0-java17 | |
+| &check; | mysql | 172.25.27.3 | 8.3 | |
+| &check; | doris-fe | 172.25.27.5 | 3.1.0 | |
+| &check; | doris-be | 172.25.27.6 | 3.1.0 | |
+| &check; | flink-jobmanager | 172.25.27.8 | 2.1.0-java17 | |
+| &check; | flink-taskmanager | 172.25.27.9 | 2.1.0-java17 | |
 
 
 # 使用到的镜像
@@ -22,6 +22,9 @@
 
 ```json
 [
-    "traefik:v3.4",
+    "apache/doris:be-3.1.0",
+    "apache/doris:fe-3.1.0",
+    "flink:scala_2.12-java17",
+    "bitnami/mysql:8.3",
 ]
 ```

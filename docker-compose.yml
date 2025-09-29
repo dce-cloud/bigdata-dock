@@ -1,9 +1,6 @@
-networks:
-  backend:
-    name: "${DOCKER_BACKEND_NETWORK_NAME}"
-    driver: ${DOCKER_NETWORK_DRIVER}
-    ipam:
-      config:
-        - subnet: "${DOCKER_BACKEND_SUBNET}"
-          gateway: "${DOCKER_BACKEND_SUBNET_GATEWAY}"
-
+include:
+  - ./docker-compose-network.yml
+  - ./mysql/docker-compose-mysql.yml
+  - ./doris-fe/docker-compose-doris-fe.yml
+  - ./doris-be/docker-compose-doris-be.yml
+  - ./flink/docker-compose-flink.yml
