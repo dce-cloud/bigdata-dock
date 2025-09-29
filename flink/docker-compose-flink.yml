@@ -15,7 +15,7 @@ services:
       - TZ=${TZ}
       - |
         FLINK_PROPERTIES=
-        jobmanager.rpc.address: jobmanager
+        jobmanager.rpc.address: flink-jobmanager
     volumes:
       # - ${FLINK_JOBMANAGER_HOST_PATH}/jobmanager:/opt/flink/usrlib
       - ${FLINK_JOBMANAGER_HOST_PATH}/jobmanager/conf/:/opt/flink/conf/
@@ -40,7 +40,7 @@ services:
       - TZ=${TZ}
       - |
         FLINK_PROPERTIES=
-        jobmanager.rpc.address: jobmanager
+        jobmanager.rpc.address: flink-jobmanager
     volumes:
       # - ${FLINK_JOBMANAGER_HOST_PATH}/taskmanager:/opt/flink/usrlib
       - ${FLINK_JOBMANAGER_HOST_PATH}/taskmanager/conf/:/opt/flink/conf/
