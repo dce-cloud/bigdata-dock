@@ -4,3 +4,4 @@ include:
   - ./doris-fe/docker-compose-doris-fe.yml
   - ./doris-be/docker-compose-doris-be.yml
   - ./flink/docker-compose-flink.yml
+  - ./dinky/docker-compose-dinky.yml
