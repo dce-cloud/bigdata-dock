@@ -7,6 +7,7 @@ services:
       args:
         DOCKER_REGISTRY_URL: ${DOCKER_REGISTRY_URL}
         FLINK_VERSION: ${FLINK_VERSION}
+        JAVA_VERSION: ${JAVA_VERSION}
     container_name: ${FLINK_JOBMANAGER_CONTAINER_NAME}
     hostname: ${FLINK_JOBMANAGER_HOSTNAME}
     restart: ${DOCKER_RESTART_POLICY}
@@ -17,7 +18,7 @@ services:
         FLINK_PROPERTIES=
         jobmanager.rpc.address: flink-jobmanager
     volumes:
-      # - ${FLINK_JOBMANAGER_HOST_PATH}/jobmanager:/opt/flink/usrlib
+      - flink-job-data:/opt/flink/usrlib
       - ${FLINK_JOBMANAGER_HOST_PATH}/jobmanager/conf/:/opt/flink/conf/
     ports:
       - "${FLINK_JOBMANAGER_HOST_PORT}:8081"
@@ -32,6 +33,7 @@ services:
       args:
         DOCKER_REGISTRY_URL: ${DOCKER_REGISTRY_URL}
         FLINK_VERSION: ${FLINK_VERSION}
+        JAVA_VERSION: ${JAVA_VERSION}
     container_name: ${FLINK_TASKMANAGER_CONTAINER_NAME}
     hostname: ${FLINK_TASKMANAGER_HOSTNAME}
     restart: ${DOCKER_RESTART_POLICY}
@@ -42,7 +44,7 @@ services:
         FLINK_PROPERTIES=
         jobmanager.rpc.address: flink-jobmanager
     volumes:
-      # - ${FLINK_JOBMANAGER_HOST_PATH}/taskmanager:/opt/flink/usrlib
+      - flink-job-data:/opt/flink/usrlib
       - ${FLINK_JOBMANAGER_HOST_PATH}/taskmanager/conf/:/opt/flink/conf/
     networks:
       backend:
