@@ -23,7 +23,7 @@
 [
     "apache/doris:be-3.1.0",
     "apache/doris:fe-3.1.0",
-    "flink:scala_1.18-java17",
+    "flink:1.18-scala_2.12-java17",
     "bitnami/mysql:8.3",
     "dinkydocker/dinky-standalone-server:1.2.4-flink1.18"
 ]
