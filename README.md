@@ -15,11 +15,7 @@
 | &check; | flink-jobmanager | 172.25.27.8 | 2.1.0-java17 | |
 | &check; | flink-taskmanager | 172.25.27.9 | 2.1.0-java17 | |
 
-
 # 使用到的镜像
-- 默认使用docker.io 镜像
-- 若想使用自定义仓库镜像，需要定义 `DOCKER_REGISTRY_URL` 变量
-
 ```json
 [
     "apache/doris:be-3.1.0",
