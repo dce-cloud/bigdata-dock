@@ -30,8 +30,8 @@ services:
     build:
       context: ${MYSQL_HOST_PATH}
       args:
-        MYSQL_VERSION: ${MYSQL_VERSION}
         DOCKER_REGISTRY_URL: ${DOCKER_REGISTRY_URL}
+        MYSQL_VERSION: ${MYSQL_VERSION}
     hostname: ${MYSQL_HOSTNAME}
     container_name: ${MYSQL_CONTAINER_NAME}
     restart: ${DOCKER_RESTART_POLICY}
