@@ -1,0 +1,28 @@
+volumes:
+  hadoop-data:
+    driver: ${VOLUMES_DRIVER}
+
+services:
+
+### Hadoop ################################################
+  hadoop:
+    build:
+      context: ${HADOOP_HOST_PATH}
+      args:
+        DOCKER_REGISTRY_URL: ${DOCKER_REGISTRY_URL}
+        APACHE_DORIS_VERSION: ${APACHE_DORIS_VERSION}
+    container_name: ${APACHE_DORIS_FE_CONTAINER_NAME}
+    hostname: ${APACHE_DORIS_FE_HOSTNAME}
+    restart: ${DOCKER_RESTART_POLICY}
+    environment:
+      TZ: ${TZ}
+      FE_SERVERS: fe1:${APACHE_DORIS_FE_BACKEND_IP}:9010
+      FE_ID: 1
+    volumes:
+      - apache-doris-fe-data:/opt/apache-doris/fe/doris-meta
+    ports:
+      - 8030:8030
+      - 9030:9030
+    networks:
+      backend:
+        ipv4_address: ${APACHE_DORIS_FE_BACKEND_IP}

@@ -30,6 +30,10 @@ enter_apache_doris_fe:
 enter_apache_doris_be:
 	@${DC_ENTER} ${APACHE_DORIS_BE_CONTAINER_NAME} bash
 
+.PHONY: enter_mysql
+enter_mysql:
+	@${DC_ENTER} ${MYSQL_CONTAINER_NAME} bash
+
 build_flink:
 	@${DC_BUILD} ${FLINK_JOBMANAGER_CONTAINER_NAME} ${FLINK_TASKMANAGER_CONTAINER_NAME}
 
