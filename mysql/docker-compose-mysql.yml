@@ -4,9 +4,9 @@ volumes:
 
 secrets:
   mysql_root_password:
-    file: ${PORTAINER_HOST_PATH}/mysql_root_password
+    file: ${MYSQL_HOST_PATH}/mysql_root_password
   mysql_password:
-    file: ${PORTAINER_HOST_PATH}/mysql_password 
+    file: ${MYSQL_HOST_PATH}/mysql_password 
 
 services:
 
