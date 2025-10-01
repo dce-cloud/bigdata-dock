@@ -22,17 +22,17 @@ services:
     restart: ${DOCKER_RESTART_POLICY}
     volumes:
       - "mysql-data:/var/lib/mysql"
-      - "${MYSQL_HOST_PATH}/my.cnf:/etc/mysql/conf.d/my.cnf"
+      - "${MYSQL_HOST_PATH}/conf:/etc/mysql/conf.d"
       - "${MYSQL_HOST_PATH}/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
     ports:
       - "${MYSQL_HOST_PORT}:3306"
     environment:
       TZ: "${TZ}"
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: "${MYSQL_DATABASE}"
       MYSQL_USER: "${MYSQL_USER}"
       MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+      MYSQL_INITDB_SKIP_TZINFO: "1"
     secrets:
         - mysql_root_password
         - mysql_password

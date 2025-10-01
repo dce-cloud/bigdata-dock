@@ -5,4 +5,3 @@ FROM ${DOCKER_REGISTRY_URL}mysql:${MYSQL_VERSION}-oraclelinux9
 LABEL maintainer="zaizai <373045134@qq.com>"
 
 ENV TZ=Asia/Shanghai
-
