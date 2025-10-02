@@ -28,8 +28,8 @@ services:
       # - ./fe/jdbc_drivers:/opt/apache-doris/fe/jdbc_drivers
       # - ./fe/plugins:/opt/apache-doris/fe/plugins
     ports:
-      - 8030:8030
-      - 9030:9030
+      - ${APACHE_DORIS_FE_HOST_HTTP_PORT}:8030
+      - ${APACHE_DORIS_FE_HOST_SQL_PORT}:9030
     networks:
       backend:
         ipv4_address: ${APACHE_DORIS_FE_BACKEND_IP}
