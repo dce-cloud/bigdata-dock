@@ -30,3 +30,9 @@ services:
     networks:
       backend:
         ipv4_address: ${DINKY_BACKEND_IP}
+    healthcheck:
+      test: ['CMD', "curl", "-f", "http://localhost:8888/actuator/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
