@@ -50,7 +50,7 @@ services:
       backend:
         ipv4_address: ${FLINK_TASKMANAGER_BACKEND_IP}
     healthcheck:
-      test: ["CMD", "pgrep -f 'org.apache.flink.runtime' > /dev/null || exit 1"]
+      test: ["CMD", "sh", "-c", "pgrep -f 'org.apache.flink.runtime' > /dev/null || exit 1"]
       interval: 15s
       timeout: 5s
       retries: 5
