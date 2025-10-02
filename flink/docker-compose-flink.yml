@@ -13,10 +13,7 @@ services:
     restart: ${DOCKER_RESTART_POLICY}
     command: jobmanager
     environment:
-      - TZ=${TZ}
-      # - |
-      #   FLINK_PROPERTIES=
-      #   jobmanager.rpc.address: jobmanager
+      TZ: ${TZ}
     volumes:
       - ../_flink_job:/opt/flink/usrlib
       - ${FLINK_HOST_PATH}/jobmanager/conf/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
@@ -45,10 +42,7 @@ services:
     restart: ${DOCKER_RESTART_POLICY}
     command: taskmanager
     environment:
-      - TZ=${TZ}
-      # - |
-      #   FLINK_PROPERTIES=
-      #   jobmanager.rpc.address: jobmanager
+      TZ: ${TZ}
     volumes:
       - ../_flink_job:/opt/flink/usrlib
       - ${FLINK_HOST_PATH}/taskmanager/conf/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
