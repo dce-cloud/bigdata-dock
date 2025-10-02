@@ -26,7 +26,7 @@ services:
       backend:
         ipv4_address: ${FLINK_JOBMANAGER_BACKEND_IP}
     healthcheck:
-      test: ['CMD', 'curl -f http://localhost:8081/overview']
+      test: ['CMD', "curl", "-f", "http://localhost:8081/overview"]
       interval: 15s
       timeout: 5s
       retries: 5
@@ -56,7 +56,7 @@ services:
       backend:
         ipv4_address: ${FLINK_TASKMANAGER_BACKEND_IP}
     healthcheck:
-      test: ['CMD', 'pgrep -f "org.apache.flink.runtime" > /dev/null || exit 1']
+      test: ["CMD", "pgrep -f 'org.apache.flink.runtime' > /dev/null || exit 1"]
       interval: 15s
       timeout: 5s
       retries: 5
