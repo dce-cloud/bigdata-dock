@@ -19,7 +19,7 @@ services:
       #   jobmanager.rpc.address: jobmanager
     volumes:
       - ../_flink_job:/opt/flink/usrlib
-      - ${FLINK_JOBMANAGER_HOST_PATH}/jobmanager/conf/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
+      - ${FLINK_HOST_PATH}/jobmanager/conf/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
     ports:
       - "${FLINK_JOBMANAGER_HOST_PORT}:8081"
     networks:
