@@ -36,23 +36,23 @@ enter_mysql:
 
 .PHONY: build_flink up_flink down_flink
 build_flink:
-	@${DC_BUILD} --no-cache ${FLINK_JOBMANAGER_CONTAINER_NAME} ${FLINK_TASKMANAGER_CONTAINER_NAME}
+	@${DC_BUILD} --no-cache ${FLINK_JOBMANAGER_CONTAINER_NAME} taskmanager
 up_flink:
-	@${DC_UP} ${FLINK_JOBMANAGER_CONTAINER_NAME} ${FLINK_TASKMANAGER_CONTAINER_NAME}
+	@${DC_UP} ${FLINK_JOBMANAGER_CONTAINER_NAME} taskmanager
 down_flink:
-	@${DC_DOWN} ${FLINK_JOBMANAGER_CONTAINER_NAME} ${FLINK_TASKMANAGER_CONTAINER_NAME}
+	@${DC_DOWN} ${FLINK_JOBMANAGER_CONTAINER_NAME} taskmanager
 
 .PHONY: enter_jobmanager enter_taskmanager
 enter_jobmanager:
 	@${DC_ENTER} ${FLINK_JOBMANAGER_CONTAINER_NAME} bash
 enter_taskmanager:
-	@${DC_ENTER} ${FLINK_TASKMANAGER_CONTAINER_NAME} bash
+	@${DC_ENTER} taskmanager bash
 
 .PHONY: copy_jobmanager_conf copy_taskmanager_conf
 copy_jobmanager_conf:
 	@${DC_CP} ${FLINK_JOBMANAGER_CONTAINER_NAME}:/opt/flink/conf/flink-conf.yaml ./flink/context/jobmanager/conf/flink-conf.yaml
 copy_taskmanager_conf:
-	@${DC_CP} ${FLINK_TASKMANAGER_CONTAINER_NAME}:/opt/flink/conf/flink-conf.yaml ./flink/context/taskmanager/conf/flink-conf.yaml
+	@${DC_CP} taskmanager:/opt/flink/conf/flink-conf.yaml ./flink/context/taskmanager/conf/flink-conf.yaml
 
 .PHONY: enter_dinky
 enter_dinky:
