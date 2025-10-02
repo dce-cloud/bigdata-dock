@@ -3,7 +3,7 @@ services:
 ### Flink taskmanager ################################################
   taskmanager:
     build:
-      context: ${FLINK_HOST_PATH}
+      context: ${FLINK_TASKMANAGER_HOST_PATH}
       args:
         DOCKER_REGISTRY_URL: ${DOCKER_REGISTRY_URL}
         FLINK_VERSION: ${FLINK_VERSION}
