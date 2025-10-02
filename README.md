@@ -14,7 +14,7 @@
 | &check; | doris-fe | 172.25.27.5 | 3.1.0 | |
 | &check; | doris-be | 172.25.27.6 | 3.1.0 | |
 | &check; | jobmanager | 172.25.27.8 | 2.1.0-java17 | |
-| &check; | taskmanager | 172.25.27.9 | 2.1.0-java17 | |
+| &check; | taskmanager | 动态 3个节点 | 2.1.0-java17 | |
 | &check; | dinky | 172.25.27.15 | 1.2.4 | |
 
 # 使用到的镜像

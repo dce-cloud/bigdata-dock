@@ -1,0 +1,32 @@
+services:
+
+### Flink jobmanager ################################################
+  jobmanager:
+    build:
+      context: ${FLINK_HOST_PATH}
+      args:
+        DOCKER_REGISTRY_URL: ${DOCKER_REGISTRY_URL}
+        FLINK_VERSION: ${FLINK_VERSION}
+        JAVA_VERSION: ${JAVA_VERSION}
+    container_name: ${FLINK_JOBMANAGER_CONTAINER_NAME}
+    hostname: ${FLINK_JOBMANAGER_HOSTNAME}
+    restart: ${DOCKER_RESTART_POLICY}
+    command: jobmanager
+    environment:
+      TZ: ${TZ}
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: jobmanager
+        parallelism.default: 3
+    volumes:
+      - ../_flink_job:/opt/flink/usrlib
+    ports:
+      - "${FLINK_JOBMANAGER_HOST_PORT}:8081"
+    networks:
+      backend:
+        ipv4_address: ${FLINK_JOBMANAGER_BACKEND_IP}
+    healthcheck:
+      test: ['CMD', "curl", "-f", "http://localhost:8081/overview"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s

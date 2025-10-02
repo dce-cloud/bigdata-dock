@@ -3,5 +3,6 @@ include:
   - ./mysql/docker-compose-mysql.yml
   - ./doris-fe/docker-compose-doris-fe.yml
   - ./doris-be/docker-compose-doris-be.yml
-  - ./flink/docker-compose-flink.yml
+  - ./flink/docker-compose-flink-jobmanager.yml
+  - ./flink/docker-compose-flink-taskmanager.yml
   - ./dinky/docker-compose-dinky.yml
