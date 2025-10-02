@@ -1,8 +1,8 @@
 include:
   - ./docker-compose-network.yml
   - ./mysql/docker-compose-mysql.yml
-  - ./doris-fe/docker-compose-doris-fe.yml
-  - ./doris-be/docker-compose-doris-be.yml
-  - ./flink/docker-compose-flink-jobmanager.yml
-  - ./flink/docker-compose-flink-taskmanager.yml
+  - ./doris/doris-fe/docker-compose.yml
+  - ./doris/doris-be/docker-compose.yml
+  - ./flink/jobmanager/docker-compose.yml
+  - ./flink/taskmanager/docker-compose.yml
   - ./dinky/docker-compose-dinky.yml
