@@ -1,9 +1,9 @@
 services:
 
 ### Flink jobmanager ################################################
-  flink-jobmanager:
+  jobmanager:
     build:
-      context: ${FLINK_JOBMANAGER_HOST_PATH}
+      context: ${FLINK_HOST_PATH}
       args:
         DOCKER_REGISTRY_URL: ${DOCKER_REGISTRY_URL}
         FLINK_VERSION: ${FLINK_VERSION}
@@ -14,12 +14,12 @@ services:
     command: jobmanager
     environment:
       - TZ=${TZ}
-      - |
-        FLINK_PROPERTIES=
-        jobmanager.rpc.address: flink-jobmanager
+      # - |
+      #   FLINK_PROPERTIES=
+      #   jobmanager.rpc.address: jobmanager
     volumes:
-      - flink-job-data:/opt/flink/usrlib
-      - ${FLINK_JOBMANAGER_HOST_PATH}/jobmanager/conf/:/opt/flink/conf/
+      - ../_flink_job:/opt/flink/usrlib
+      - ${FLINK_JOBMANAGER_HOST_PATH}/jobmanager/conf/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
     ports:
       - "${FLINK_JOBMANAGER_HOST_PORT}:8081"
     networks:
@@ -27,9 +27,9 @@ services:
         ipv4_address: ${FLINK_JOBMANAGER_BACKEND_IP}
 
   ### Flink taskmanager ################################################
-  flink-taskmanager:
+  taskmanager:
     build:
-      context: ${FLINK_TASKMANAGER_HOST_PATH}
+      context: ${FLINK_HOST_PATH}
       args:
         DOCKER_REGISTRY_URL: ${DOCKER_REGISTRY_URL}
         FLINK_VERSION: ${FLINK_VERSION}
@@ -40,12 +40,12 @@ services:
     command: taskmanager
     environment:
       - TZ=${TZ}
-      - |
-        FLINK_PROPERTIES=
-        jobmanager.rpc.address: flink-jobmanager
+      # - |
+      #   FLINK_PROPERTIES=
+      #   jobmanager.rpc.address: jobmanager
     volumes:
-      - flink-job-data:/opt/flink/usrlib
-      - ${FLINK_JOBMANAGER_HOST_PATH}/taskmanager/conf/:/opt/flink/conf/
+      - ../_flink_job:/opt/flink/usrlib
+      - ${FLINK_HOST_PATH}/taskmanager/conf/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
     networks:
       backend:
         ipv4_address: ${FLINK_TASKMANAGER_BACKEND_IP}
