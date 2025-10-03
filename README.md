@@ -9,7 +9,7 @@
 # 服务清单
 
 | status | service | backend ip | version | 备注 |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | &check; | mysql | 172.25.27.3 | 8.3 | |
 | &check; | doris-fe | 172.25.27.5 | 3.1.0 | |
 | &check; | doris-be | 172.25.27.6 | 3.1.0 | |
